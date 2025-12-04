@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppShoeStore;
+namespace AppShoeStore.Models;
 
 public partial class User
 {

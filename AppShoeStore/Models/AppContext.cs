@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppShoeStore;
+namespace AppShoeStore.Models;
 
-public partial class ShoeStoreContext : DbContext
+public partial class AppContext : DbContext
 {
-    public ShoeStoreContext()
+    public AppContext()
     {
     }
 
-    public ShoeStoreContext(DbContextOptions<ShoeStoreContext> options)
+    public AppContext(DbContextOptions<AppContext> options)
         : base(options)
     {
     }
