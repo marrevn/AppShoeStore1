@@ -2,10 +2,19 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppShoeStore.Models;
+namespace AppShoeStore;
 
-public partial class AppContext : DbContext
+public partial class ShoeStoreContext : DbContext
 {
+    public ShoeStoreContext()
+    {
+    }
+
+    public ShoeStoreContext(DbContextOptions<ShoeStoreContext> options)
+        : base(options)
+    {
+    }
+
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Good> Goods { get; set; }
@@ -29,7 +38,8 @@ public partial class AppContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=store_shoe;Username=postgres;Password=1111");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=shoe_store;Username=postgres;Password=1111");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -99,13 +109,17 @@ public partial class AppContext : DbContext
             entity.ToTable("orders_composition");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.IdArticle).HasColumnName("id_article");
             entity.Property(e => e.IdOrder).HasColumnName("id_order");
+            entity.Property(e => e.IdTovar).HasColumnName("id_tovar");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
             entity.HasOne(d => d.IdOrderNavigation).WithMany(p => p.OrdersCompositions)
                 .HasForeignKey(d => d.IdOrder)
                 .HasConstraintName("fk_orders_composition_to_orders");
+
+            entity.HasOne(d => d.IdTovarNavigation).WithMany(p => p.OrdersCompositions)
+                .HasForeignKey(d => d.IdTovar)
+                .HasConstraintName("fk_orders_composition_to_tovars");
         });
 
         modelBuilder.Entity<PickupPoint>(entity =>
@@ -153,18 +167,21 @@ public partial class AppContext : DbContext
 
         modelBuilder.Entity<Tovar>(entity =>
         {
-            entity.HasKey(e => e.Article).HasName("pk_tovars_article");
+            entity.HasKey(e => e.Id).HasName("pk_tovars_id");
 
             entity.ToTable("tovars");
 
+            entity.HasIndex(e => e.Article, "uq_article_tovars").IsUnique();
+
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Article).HasColumnName("article");
             entity.Property(e => e.CountTovars).HasColumnName("count_tovars");
             entity.Property(e => e.Descreption).HasColumnName("descreption");
             entity.Property(e => e.Discount).HasColumnName("discount");
             entity.Property(e => e.IdCategory).HasColumnName("id_category");
+            entity.Property(e => e.IdGood).HasColumnName("id_good");
             entity.Property(e => e.IdManufacturer).HasColumnName("id_manufacturer");
             entity.Property(e => e.IdSupplier).HasColumnName("id_supplier");
-            entity.Property(e => e.IdTovar).HasColumnName("id_tovar");
             entity.Property(e => e.Picture).HasColumnName("picture");
             entity.Property(e => e.Price)
                 .HasColumnType("money")
@@ -175,6 +192,10 @@ public partial class AppContext : DbContext
                 .HasForeignKey(d => d.IdCategory)
                 .HasConstraintName("fk_tovars_to_categories");
 
+            entity.HasOne(d => d.IdGoodNavigation).WithMany(p => p.Tovars)
+                .HasForeignKey(d => d.IdGood)
+                .HasConstraintName("fk_tovars_to_goods");
+
             entity.HasOne(d => d.IdManufacturerNavigation).WithMany(p => p.Tovars)
                 .HasForeignKey(d => d.IdManufacturer)
                 .HasConstraintName("fk_tovars_to_manufacturers");
@@ -182,10 +203,6 @@ public partial class AppContext : DbContext
             entity.HasOne(d => d.IdSupplierNavigation).WithMany(p => p.Tovars)
                 .HasForeignKey(d => d.IdSupplier)
                 .HasConstraintName("fk_tovars_to_suppliers");
-
-            entity.HasOne(d => d.IdTovarNavigation).WithMany(p => p.Tovars)
-                .HasForeignKey(d => d.IdTovar)
-                .HasConstraintName("fk_tovars_to_goods");
         });
 
         modelBuilder.Entity<User>(entity =>

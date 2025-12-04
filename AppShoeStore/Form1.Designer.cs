@@ -35,17 +35,19 @@
             button1 = new Button();
             button2 = new Button();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             label3 = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(32, 127);
+            label1.Location = new Point(21, 165);
             label1.Name = "label1";
             label1.Size = new Size(65, 21);
             label1.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(32, 251);
+            label2.Location = new Point(21, 289);
             label2.Name = "label2";
             label2.Size = new Size(73, 21);
             label2.TabIndex = 1;
@@ -63,18 +65,18 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(32, 151);
+            textBox1.Location = new Point(21, 189);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(366, 45);
+            textBox1.Size = new Size(534, 45);
             textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(32, 275);
+            textBox2.Location = new Point(21, 313);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(366, 45);
+            textBox2.Size = new Size(534, 45);
             textBox2.TabIndex = 3;
             // 
             // button1
@@ -107,6 +109,16 @@
             panel1.Size = new Size(601, 70);
             panel1.TabIndex = 6;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.Location = new Point(91, 22);
+            label3.Name = "label3";
+            label3.Size = new Size(154, 26);
+            label3.TabIndex = 1;
+            label3.Text = "Авторизация";
+            // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(11, 11);
@@ -115,14 +127,13 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // label3
+            // pictureBox2
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(222, 23);
-            label3.Name = "label3";
-            label3.Size = new Size(78, 15);
-            label3.TabIndex = 1;
-            label3.Text = "Авторизация";
+            pictureBox2.Location = new Point(210, 76);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(166, 96);
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -130,6 +141,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(601, 511);
+            Controls.Add(pictureBox2);
             Controls.Add(panel1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -142,6 +154,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -157,5 +170,6 @@
         private Panel panel1;
         private Label label3;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

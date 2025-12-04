@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppShoeStore.Models;
+namespace AppShoeStore;
 
-public partial class Manufacturer
+public partial class Good
 {
     public int Id { get; set; }
 
-    public string ManufacturerName { get; set; } = null!;
+    public string GoodName { get; set; } = null!;
 
     public virtual ICollection<Tovar> Tovars { get; set; } = new List<Tovar>();
 }

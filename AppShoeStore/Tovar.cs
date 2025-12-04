@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppShoeStore.Models;
+namespace AppShoeStore;
 
 public partial class Tovar
 {
-    public string Article { get; set; } = null!;
+    public int Id { get; set; }
 
-    public int IdTovar { get; set; }
+    public string? Article { get; set; }
+
+    public int IdGood { get; set; }
 
     public string Unit { get; set; } = null!;
 
@@ -29,9 +31,11 @@ public partial class Tovar
 
     public virtual Category IdCategoryNavigation { get; set; } = null!;
 
+    public virtual Good IdGoodNavigation { get; set; } = null!;
+
     public virtual Manufacturer IdManufacturerNavigation { get; set; } = null!;
 
     public virtual Supplier IdSupplierNavigation { get; set; } = null!;
 
-    public virtual Good IdTovarNavigation { get; set; } = null!;
+    public virtual ICollection<OrdersComposition> OrdersCompositions { get; set; } = new List<OrdersComposition>();
 }

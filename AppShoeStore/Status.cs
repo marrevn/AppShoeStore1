@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppShoeStore.Models;
+namespace AppShoeStore;
 
 public partial class Status
 {
-    public short Id { get; set; }
+    public int Id { get; set; }
 
     public string StatusName { get; set; } = null!;
 

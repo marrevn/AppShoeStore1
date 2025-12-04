@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppShoeStore.Models;
+namespace AppShoeStore;
 
 public partial class Order
 {
@@ -17,7 +17,7 @@ public partial class Order
 
     public int Code { get; set; }
 
-    public short IdStatus { get; set; }
+    public int IdStatus { get; set; }
 
     public virtual PickupPoint IdPickupPointNavigation { get; set; } = null!;
 
