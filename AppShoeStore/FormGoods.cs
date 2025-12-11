@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace AppShoeStore
 {
-    public partial class Form2 : Form
+    public partial class FormGoods : Form
     {
-        public Form2()
+        public FormGoods()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
