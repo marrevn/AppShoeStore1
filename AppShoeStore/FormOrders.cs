@@ -21,5 +21,11 @@ namespace AppShoeStore
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormOrderManagement formOrdersManagement = new FormOrderManagement();
+            formOrdersManagement.Show();
+        }
     }
 }

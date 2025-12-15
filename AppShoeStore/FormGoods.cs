@@ -16,5 +16,16 @@ namespace AppShoeStore
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormGoodManagement formGoodManagement = new FormGoodManagement();
+            formGoodManagement.Show();
+        }
     }
 }
