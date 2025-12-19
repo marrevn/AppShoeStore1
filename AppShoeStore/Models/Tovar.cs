@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AppShoeStore.Models;
+﻿namespace AppShoeStore.Models;
 
 public partial class Tovar
 {
@@ -29,13 +26,13 @@ public partial class Tovar
 
     public string Picture { get; set; } = null!;
 
-    public virtual Category IdCategoryNavigation { get; set; } = null!;
+    public virtual Category Category { get; set; } = null!;
 
-    public virtual Good IdGoodNavigation { get; set; } = null!;
+    public virtual Good Good { get; set; } = null!;
 
-    public virtual Manufacturer IdManufacturerNavigation { get; set; } = null!;
+    public virtual Manufacturer Manufacturer { get; set; } = null!;
 
-    public virtual Supplier IdSupplierNavigation { get; set; } = null!;
+    public virtual Supplier Supplier { get; set; } = null!;
 
     public virtual ICollection<OrdersComposition> OrdersCompositions { get; set; } = new List<OrdersComposition>();
 }

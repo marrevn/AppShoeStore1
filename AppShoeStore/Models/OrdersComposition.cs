@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AppShoeStore.Models;
+﻿namespace AppShoeStore.Models;
 
 public partial class OrdersComposition
 {
@@ -13,7 +10,7 @@ public partial class OrdersComposition
 
     public int Quantity { get; set; }
 
-    public virtual Order IdOrderNavigation { get; set; } = null!;
+    public virtual Order Order { get; set; } = null!;
 
-    public virtual Tovar IdTovarNavigation { get; set; } = null!;
+    public virtual Tovar Tovar { get; set; } = null!;
 }

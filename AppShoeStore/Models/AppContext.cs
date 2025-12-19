@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace AppShoeStore.Models;
 
@@ -89,15 +87,15 @@ public partial class AppContext : DbContext
             entity.Property(e => e.IdStatus).HasColumnName("id_status");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
 
-            entity.HasOne(d => d.IdPickupPointNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.PickupPoint).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdPickupPoint)
                 .HasConstraintName("fk_orders_to_pickup_points");
 
-            entity.HasOne(d => d.IdStatusNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.Status).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdStatus)
                 .HasConstraintName("fk_orders_to_statuses");
 
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdUser)
                 .HasConstraintName("fk_orders_to_users");
         });
@@ -113,11 +111,11 @@ public partial class AppContext : DbContext
             entity.Property(e => e.IdTovar).HasColumnName("id_tovar");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
-            entity.HasOne(d => d.IdOrderNavigation).WithMany(p => p.OrdersCompositions)
+            entity.HasOne(d => d.Order).WithMany(p => p.OrdersCompositions)
                 .HasForeignKey(d => d.IdOrder)
                 .HasConstraintName("fk_orders_composition_to_orders");
 
-            entity.HasOne(d => d.IdTovarNavigation).WithMany(p => p.OrdersCompositions)
+            entity.HasOne(d => d.Tovar).WithMany(p => p.OrdersCompositions)
                 .HasForeignKey(d => d.IdTovar)
                 .HasConstraintName("fk_orders_composition_to_tovars");
         });
@@ -188,19 +186,19 @@ public partial class AppContext : DbContext
                 .HasColumnName("price");
             entity.Property(e => e.Unit).HasColumnName("unit");
 
-            entity.HasOne(d => d.IdCategoryNavigation).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Category).WithMany(p => p.Tovars)
                 .HasForeignKey(d => d.IdCategory)
                 .HasConstraintName("fk_tovars_to_categories");
 
-            entity.HasOne(d => d.IdGoodNavigation).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Good).WithMany(p => p.Tovars)
                 .HasForeignKey(d => d.IdGood)
                 .HasConstraintName("fk_tovars_to_goods");
 
-            entity.HasOne(d => d.IdManufacturerNavigation).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Tovars)
                 .HasForeignKey(d => d.IdManufacturer)
                 .HasConstraintName("fk_tovars_to_manufacturers");
 
-            entity.HasOne(d => d.IdSupplierNavigation).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Tovars)
                 .HasForeignKey(d => d.IdSupplier)
                 .HasConstraintName("fk_tovars_to_suppliers");
         });
@@ -221,7 +219,7 @@ public partial class AppContext : DbContext
             entity.Property(e => e.PasswordUser).HasColumnName("password_user");
             entity.Property(e => e.Patronymic).HasColumnName("patronymic");
 
-            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Users)
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.IdRole)
                 .HasConstraintName("fk_users_to_roles");
         });
