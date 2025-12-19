@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AppShoeStore
 {
-    public partial class FormGoods : Form
+    public partial class FormProducts : Form
     {
-        public FormGoods()
+        public FormProducts()
         {
             InitializeComponent();
         }
