@@ -29,167 +29,130 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAvtoriz));
-            panel1 = new Panel();
-            pictureBox2 = new PictureBox();
-            panel3 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
-            panel2 = new Panel();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            textBox2 = new TextBox();
-            label1 = new Label();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
+            pbLogo = new PictureBox();
+            pnMain = new Panel();
+            btnGuest = new Button();
+            btnLogin = new Button();
+            txtPassword = new TextBox();
+            lbPassword = new Label();
+            txtLogin = new TextBox();
+            lbLogin = new Label();
+            ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
+            pnMain.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pbLogo
             // 
-            panel1.Controls.Add(pictureBox2);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(20, 10, 20, 10);
-            panel1.Size = new Size(601, 140);
-            panel1.TabIndex = 8;
+            pbLogo.Anchor = AnchorStyles.None;
+            pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
+            pbLogo.Location = new Point(142, 12);
+            pbLogo.Name = "pbLogo";
+            pbLogo.Size = new Size(100, 100);
+            pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLogo.TabIndex = 0;
+            pbLogo.TabStop = false;
             // 
-            // pictureBox2
+            // pnMain
             // 
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(20, 10);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(561, 120);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 8;
-            pictureBox2.TabStop = false;
+            pnMain.Anchor = AnchorStyles.None;
+            pnMain.Controls.Add(btnGuest);
+            pnMain.Controls.Add(btnLogin);
+            pnMain.Controls.Add(txtPassword);
+            pnMain.Controls.Add(lbPassword);
+            pnMain.Controls.Add(txtLogin);
+            pnMain.Controls.Add(lbLogin);
+            pnMain.Location = new Point(17, 118);
+            pnMain.Name = "pnMain";
+            pnMain.Size = new Size(351, 231);
+            pnMain.TabIndex = 1;
             // 
-            // panel3
+            // btnGuest
             // 
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(button2);
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 411);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(70, 10, 70, 10);
-            panel3.Size = new Size(601, 100);
-            panel3.TabIndex = 10;
+            btnGuest.BackColor = Color.MediumSpringGreen;
+            btnGuest.FlatAppearance.BorderSize = 0;
+            btnGuest.FlatStyle = FlatStyle.Flat;
+            btnGuest.Location = new Point(100, 182);
+            btnGuest.Name = "btnGuest";
+            btnGuest.Size = new Size(150, 30);
+            btnGuest.TabIndex = 5;
+            btnGuest.Text = "Войти как гость";
+            btnGuest.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnLogin
             // 
-            button1.Dock = DockStyle.Bottom;
-            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            button1.Location = new Point(70, 13);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(461, 38);
-            button1.TabIndex = 18;
-            button1.Text = "Войти";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnLogin.BackColor = Color.MediumSpringGreen;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Location = new Point(100, 141);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(150, 30);
+            btnLogin.TabIndex = 4;
+            btnLogin.Text = "Войти";
+            btnLogin.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // txtPassword
             // 
-            button2.AutoSize = true;
-            button2.Dock = DockStyle.Bottom;
-            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            button2.Location = new Point(70, 51);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Size = new Size(461, 39);
-            button2.TabIndex = 17;
-            button2.Text = "Войти как гость";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            txtPassword.Location = new Point(50, 104);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(250, 26);
+            txtPassword.TabIndex = 3;
             // 
-            // panel2
+            // lbPassword
             // 
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(label1);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 140);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(20, 20, 20, 0);
-            panel2.Size = new Size(601, 271);
-            panel2.TabIndex = 11;
+            lbPassword.AutoSize = true;
+            lbPassword.Location = new Point(146, 74);
+            lbPassword.Name = "lbPassword";
+            lbPassword.Size = new Size(58, 19);
+            lbPassword.TabIndex = 2;
+            lbPassword.Text = "Пароль";
             // 
-            // textBox1
+            // txtLogin
             // 
-            textBox1.Dock = DockStyle.Top;
-            textBox1.Location = new Point(20, 147);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(561, 45);
-            textBox1.TabIndex = 13;
+            txtLogin.Location = new Point(50, 37);
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(250, 26);
+            txtLogin.TabIndex = 1;
             // 
-            // label2
+            // lbLogin
             // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Top;
-            label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(20, 106);
-            label2.Name = "label2";
-            label2.Padding = new Padding(5, 10, 5, 10);
-            label2.Size = new Size(83, 41);
-            label2.TabIndex = 12;
-            label2.Text = "Пароль:";
-            // 
-            // textBox2
-            // 
-            textBox2.Dock = DockStyle.Top;
-            textBox2.Location = new Point(20, 61);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(561, 45);
-            textBox2.TabIndex = 9;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Top;
-            label1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(20, 20);
-            label1.Name = "label1";
-            label1.Padding = new Padding(5, 10, 5, 10);
-            label1.Size = new Size(75, 41);
-            label1.TabIndex = 6;
-            label1.Text = "Логин:";
+            lbLogin.AutoSize = true;
+            lbLogin.Location = new Point(146, 7);
+            lbLogin.Name = "lbLogin";
+            lbLogin.Size = new Size(52, 19);
+            lbLogin.TabIndex = 0;
+            lbLogin.Text = "Логин";
             // 
             // FormAvtoriz
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(601, 511);
-            Controls.Add(panel2);
-            Controls.Add(panel3);
-            Controls.Add(panel1);
+            ClientSize = new Size(384, 361);
+            Controls.Add(pnMain);
+            Controls.Add(pbLogo);
+            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormAvtoriz";
-            Text = "Авторизация";
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Вход в систему";
+            ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
+            pnMain.ResumeLayout(false);
+            pnMain.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private PictureBox pictureBox2;
-        private Panel panel3;
-        private Button button1;
-        private Button button2;
-        private Panel panel2;
-        private TextBox textBox1;
-        private Label label2;
-        private TextBox textBox2;
-        private Label label1;
+        private PictureBox pbLogo;
+        private Panel pnMain;
+        private TextBox txtPassword;
+        private Label lbPassword;
+        private TextBox txtLogin;
+        private Label lbLogin;
+        private Button btnGuest;
+        private Button btnLogin;
     }
 }
