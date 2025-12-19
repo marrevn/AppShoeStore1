@@ -27,7 +27,8 @@ namespace AppShoeStore
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            FormGoods formGoods = new FormGoods();
+            formGoods.Show();
         }
     }
 }

@@ -229,7 +229,7 @@
             button2.Dock = DockStyle.Left;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button2.Location = new Point(100, 20);
+            button2.Location = new Point(150, 20);
             button2.Name = "button2";
             button2.Size = new Size(143, 60);
             button2.TabIndex = 11;
@@ -243,7 +243,7 @@
             panel3.Dock = DockStyle.Bottom;
             panel3.Location = new Point(0, 411);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(100, 20, 100, 20);
+            panel3.Padding = new Padding(150, 20, 150, 20);
             panel3.Size = new Size(601, 100);
             panel3.TabIndex = 11;
             // 
@@ -253,7 +253,7 @@
             button4.Dock = DockStyle.Right;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button4.Location = new Point(358, 20);
+            button4.Location = new Point(308, 20);
             button4.Name = "button4";
             button4.Size = new Size(143, 60);
             button4.TabIndex = 12;

@@ -32,13 +32,13 @@
             button1 = new Button();
             panel1 = new Panel();
             panel3 = new Panel();
+            label4 = new Label();
+            label3 = new Label();
             button5 = new Button();
             panel2 = new Panel();
             label1 = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
             button2 = new Button();
-            label3 = new Label();
-            label4 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -94,6 +94,26 @@
             panel3.Size = new Size(584, 109);
             panel3.TabIndex = 0;
             // 
+            // label4
+            // 
+            label4.BorderStyle = BorderStyle.FixedSingle;
+            label4.Dock = DockStyle.Right;
+            label4.Location = new Point(448, 10);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 89);
+            label4.TabIndex = 1;
+            label4.Text = "label4";
+            // 
+            // label3
+            // 
+            label3.BorderStyle = BorderStyle.FixedSingle;
+            label3.Dock = DockStyle.Left;
+            label3.Location = new Point(10, 10);
+            label3.Name = "label3";
+            label3.Size = new Size(391, 89);
+            label3.TabIndex = 0;
+            label3.Text = "label3";
+            // 
             // button5
             // 
             button5.AutoSize = true;
@@ -107,6 +127,7 @@
             button5.TabIndex = 9;
             button5.Text = "Добавить заказ";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // panel2
             // 
@@ -155,26 +176,6 @@
             button2.TabIndex = 10;
             button2.Text = "Удалить";
             button2.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Dock = DockStyle.Left;
-            label3.Location = new Point(10, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(391, 89);
-            label3.TabIndex = 0;
-            label3.Text = "label3";
-            // 
-            // label4
-            // 
-            label4.BorderStyle = BorderStyle.FixedSingle;
-            label4.Dock = DockStyle.Right;
-            label4.Location = new Point(448, 10);
-            label4.Name = "label4";
-            label4.Size = new Size(126, 89);
-            label4.TabIndex = 1;
-            label4.Text = "label4";
             // 
             // FormOrders
             // 
