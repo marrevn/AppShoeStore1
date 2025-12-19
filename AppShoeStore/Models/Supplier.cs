@@ -6,5 +6,5 @@ public partial class Supplier
 
     public string SupplierName { get; set; } = null!;
 
-    public virtual ICollection<Tovar> Tovars { get; set; } = new List<Tovar>();
+    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
 }

@@ -62,7 +62,6 @@
             lblUserName.Padding = new Padding(0, 13, 0, 0);
             lblUserName.Size = new Size(210, 30);
             lblUserName.TabIndex = 7;
-            lblUserName.Text = "ФИО пользователя";
             lblUserName.TextAlign = ContentAlignment.MiddleRight;
             // 
             // button3

@@ -15,7 +15,7 @@ public partial class AppContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<Good> Goods { get; set; }
+    public virtual DbSet<ProductsType> ProductsType { get; set; }
 
     public virtual DbSet<Manufacturer> Manufacturers { get; set; }
 
@@ -31,7 +31,7 @@ public partial class AppContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
-    public virtual DbSet<Tovar> Tovars { get; set; }
+    public virtual DbSet<Products> Products { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -51,14 +51,14 @@ public partial class AppContext : DbContext
             entity.Property(e => e.CategoryName).HasColumnName("category_name");
         });
 
-        modelBuilder.Entity<Good>(entity =>
+        modelBuilder.Entity<ProductsType>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("pk_goods_id");
 
             entity.ToTable("goods");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.GoodName).HasColumnName("good_name");
+            entity.Property(e => e.ProductType).HasColumnName("good_name");
         });
 
         modelBuilder.Entity<Manufacturer>(entity =>
@@ -115,7 +115,7 @@ public partial class AppContext : DbContext
                 .HasForeignKey(d => d.IdOrder)
                 .HasConstraintName("fk_orders_composition_to_orders");
 
-            entity.HasOne(d => d.Tovar).WithMany(p => p.OrdersCompositions)
+            entity.HasOne(d => d.Products).WithMany(p => p.OrdersCompositions)
                 .HasForeignKey(d => d.IdTovar)
                 .HasConstraintName("fk_orders_composition_to_tovars");
         });
@@ -163,7 +163,7 @@ public partial class AppContext : DbContext
             entity.Property(e => e.SupplierName).HasColumnName("supplier_name");
         });
 
-        modelBuilder.Entity<Tovar>(entity =>
+        modelBuilder.Entity<Products>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("pk_tovars_id");
 
@@ -186,19 +186,19 @@ public partial class AppContext : DbContext
                 .HasColumnName("price");
             entity.Property(e => e.Unit).HasColumnName("unit");
 
-            entity.HasOne(d => d.Category).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdCategory)
                 .HasConstraintName("fk_tovars_to_categories");
 
-            entity.HasOne(d => d.Good).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.ProductsType).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdGood)
                 .HasConstraintName("fk_tovars_to_goods");
 
-            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdManufacturer)
                 .HasConstraintName("fk_tovars_to_manufacturers");
 
-            entity.HasOne(d => d.Supplier).WithMany(p => p.Tovars)
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdSupplier)
                 .HasConstraintName("fk_tovars_to_suppliers");
         });

@@ -12,5 +12,5 @@ public partial class OrdersComposition
 
     public virtual Order Order { get; set; } = null!;
 
-    public virtual Tovar Tovar { get; set; } = null!;
+    public virtual Products Products { get; set; } = null!;
 }

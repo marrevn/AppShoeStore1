@@ -1,6 +1,6 @@
 ﻿namespace AppShoeStore.Models;
 
-public partial class Tovar
+public partial class Products
 {
     public int Id { get; set; }
 
@@ -28,7 +28,7 @@ public partial class Tovar
 
     public virtual Category Category { get; set; } = null!;
 
-    public virtual Good Good { get; set; } = null!;
+    public virtual ProductsType ProductsType { get; set; } = null!;
 
     public virtual Manufacturer Manufacturer { get; set; } = null!;
 
