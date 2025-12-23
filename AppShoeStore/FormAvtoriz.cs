@@ -10,7 +10,6 @@ namespace AppShoeStore
         {
             InitializeComponent();
         }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtLogin.Text) || String.IsNullOrWhiteSpace(txtPassword.Text))
@@ -19,10 +18,10 @@ namespace AppShoeStore
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            using (var db = new Models.AppContext())
+            using (var db = new Models.ShopDbContext())
             {
                 var user = db.Users
-                    .Where(w => w.Login == txtLogin.Text && w.PasswordUser == txtPassword.Text)
+                    .Where(w => w.Login == txtLogin.Text && w.Pass == txtPassword.Text)
                     .FirstOrDefault();
                 if (user != null)
                 {

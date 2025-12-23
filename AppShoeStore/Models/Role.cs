@@ -1,8 +1,11 @@
-﻿namespace AppShoeStore.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace AppShoeStore.Models;
 
 public partial class Role
 {
-    public short Id { get; set; }
+    public int Id { get; set; }
 
     public string RoleName { get; set; } = null!;
 

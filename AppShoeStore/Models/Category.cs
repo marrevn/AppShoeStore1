@@ -1,10 +1,13 @@
-﻿namespace AppShoeStore.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace AppShoeStore.Models;
 
 public partial class Category
 {
-    public short Id { get; set; }
+    public int Id { get; set; }
 
     public string CategoryName { get; set; } = null!;
 
-    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

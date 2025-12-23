@@ -1,3 +1,5 @@
+using AppShoeStore.Models;
+
 namespace AppShoeStore
 {
     internal static class Program

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AppShoeStore.Models;
 
-public partial class Status
+public partial class DeliveryPoint
 {
     public int Id { get; set; }
 
-    public string StatusName { get; set; } = null!;
+    public string DeliveryAddress { get; set; } = null!;
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

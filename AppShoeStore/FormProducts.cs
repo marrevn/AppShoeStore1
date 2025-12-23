@@ -1,4 +1,5 @@
 ﻿using AppShoeStore.Models;
+using AppShoeStore.Properties;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppShoeStore
@@ -17,15 +18,15 @@ namespace AppShoeStore
             colPhoto.Width = 200;
             colPhoto.FillWeight = 30;
 
-            var colInfo= new DataGridViewTextBoxColumn();
+            var colInfo = new DataGridViewTextBoxColumn();
             colInfo.Name = "colInfo";
             colInfo.FillWeight = 60;
-            colInfo.DefaultCellStyle.WrapMode=DataGridViewTriState.True;
+            colInfo.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            var colDiscount= new DataGridViewTextBoxColumn();
+            var colDiscount = new DataGridViewTextBoxColumn();
             colDiscount.Name = "colDiscount";
             colDiscount.FillWeight = 10;
-            colDiscount.DefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            colDiscount.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvProducts.Columns.AddRange(
             [
@@ -35,7 +36,7 @@ namespace AppShoeStore
             CurrentUser = user;
             IsGuest = guest;
 
-            lblUserName.Text = IsGuest ? "Гость:" : CurrentUser.Fullname;
+            lblUserName.Text = IsGuest ? "Гость:" : CurrentUser.FullName;
 
             LoadProducts();
         }
@@ -43,13 +44,13 @@ namespace AppShoeStore
         {
             try
             {
-                using (var db = new Models.AppContext())
+                using (var db = new Models.ShopDbContext())
                 {
                     var products = db.Products
                         .Include(i => i.Category)
                         .Include(i => i.Manufacturer)
                         .Include(i => i.Supplier)
-                        //.Include(i => i.Measure)
+                        .Include(i => i.Measure)
                         .ToList();
                     dgvProducts.SuspendLayout();
                     dgvProducts.Rows.Clear();
@@ -59,7 +60,14 @@ namespace AppShoeStore
                         int rowIndex = dgvProducts.Rows.Add();
                         var row = dgvProducts.Rows[rowIndex];
 
-                        row.Cells["colPhoto"].Value = LoadProductImage(product.Picture);
+                        row.Cells["colPhoto"].Value = LoadProductImage(product.PhotoUrl);
+
+                        row.Cells["colInfo"].Value = FormatProductInfo(product);
+
+                        row.Cells["colDiscount"].Value = $"{product.Discount}%";
+                        row.Cells["colDiscount"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                        ApplyRowStyles(row, product);
                     }
 
                 }
@@ -70,22 +78,75 @@ namespace AppShoeStore
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private Image LoadProductImage(string picture)
+
+        private void ApplyRowStyles(DataGridViewRow row, Product product)
         {
-            if (!String.IsNullOrEmpty(picture) && System.IO.File.Exists(picture))
+            if (product.Discount > 15)
             {
-                return Image.FromFile(picture);
+                row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#2E8B57");
+                row.DefaultCellStyle.ForeColor = Color.White;
             }
-           // здесь остановилась время 1.16.09
-        //    Bitmap bmp = new Bitmap(150, 100);
-        //    using (Graphics g=Graphics.FromImage(bmp))
-        //    {
-        //        g.Clear(Color.White);
-        //        g.DrawRectangle(Pens.LightGray, 0, 0, 149, 999);
+            if (product.CointInStock <= 0)
+            {
+                row.DefaultCellStyle.BackColor = Color.LightBlue;
+                if (product.Discount <= 15)
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+            if (product.Discount > 0)
+            {
+                row.Cells["colDiscount"].Style.ForeColor = Color.Red;
+                row.Cells["colDiscount"].Style.Font = new Font(
+                    "Times New Roman",
+                    12,
+                    FontStyle.Bold);
+            }
+        }
 
-        //    }
-        //    return 
-        //}
+        private string FormatProductInfo(Product product)
+        {
+            string priceText;
+            if (product.Discount > 0)
+            {
+                decimal finalPrice = product.Price * (100 - product.Discount) / 100;
+                priceText = $"Цена: {product.Price:C} ->  {finalPrice:C}";
+            }
+            else
+            {
+                priceText = $"Цена: {product.Price:C}";
+            }
+            return $"{product.Category.CategoryName} | {product.ProductType.ProdType}" + Environment.NewLine +
+                $"Описание товара: {product.Description}" + Environment.NewLine +
+                $"Производитель: {product.Manufacturer.ManufacturerName}" + Environment.NewLine +
+                $"Поставщик: {product.Supplier.SupplierName}" + Environment.NewLine +
+                $"Цена: {priceText}" + Environment.NewLine +
+                $"Единица измерения: {product.Measure}" + Environment.NewLine +
+                $"Количество на складе: {product.CointInStock}";
 
+
+
+        }
+
+        private Image LoadProductImage(string photoUrl)
+        {
+            if (!String.IsNullOrEmpty(photoUrl) && System.IO.File.Exists(photoUrl))
+            {
+                return Image.FromFile(photoUrl);
+            }
+
+            return Resources.picture;
+
+        }
+
+        private void BtnLogut_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+        }
     }
 }

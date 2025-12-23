@@ -1,4 +1,7 @@
-﻿namespace AppShoeStore.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace AppShoeStore.Models;
 
 public partial class Manufacturer
 {
@@ -6,5 +9,5 @@ public partial class Manufacturer
 
     public string ManufacturerName { get; set; } = null!;
 
-    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

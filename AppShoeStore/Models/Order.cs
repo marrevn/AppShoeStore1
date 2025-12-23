@@ -1,26 +1,29 @@
-﻿namespace AppShoeStore.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace AppShoeStore.Models;
 
 public partial class Order
 {
     public int Id { get; set; }
 
-    public DateOnly DateOrder { get; set; }
+    public DateOnly OrderDate { get; set; }
 
-    public DateOnly DateDelivery { get; set; }
+    public DateOnly DeliveryDate { get; set; }
 
-    public int IdPickupPoint { get; set; }
+    public int IdDeliveryPoint { get; set; }
 
-    public short IdUser { get; set; }
+    public int IdUser { get; set; }
 
     public int Code { get; set; }
 
-    public int IdStatus { get; set; }
+    public int IdStatuses { get; set; }
 
-    public virtual PickupPoint PickupPoint { get; set; } = null!;
+    public virtual DeliveryPoint DeliveryPoint { get; set; } = null!;
 
     public virtual Status Status { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
 
-    public virtual ICollection<OrdersComposition> OrdersCompositions { get; set; } = new List<OrdersComposition>();
+    public virtual ICollection<ProductsOrder> ProductsOrders { get; set; } = new List<ProductsOrder>();
 }

@@ -31,8 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelTop = new Panel();
             lblUserName = new Label();
-            button3 = new Button();
-            button1 = new Button();
+            btnLogut = new Button();
             dgvProducts = new DataGridView();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -42,8 +41,7 @@
             // 
             panelTop.BackColor = Color.White;
             panelTop.Controls.Add(lblUserName);
-            panelTop.Controls.Add(button3);
-            panelTop.Controls.Add(button1);
+            panelTop.Controls.Add(btnLogut);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(10, 10);
             panelTop.Margin = new Padding(4);
@@ -64,35 +62,21 @@
             lblUserName.TabIndex = 7;
             lblUserName.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // button3
+            // btnLogut
             // 
-            button3.BackColor = Color.MediumSpringGreen;
-            button3.Dock = DockStyle.Right;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(832, 0);
-            button3.Margin = new Padding(4);
-            button3.Name = "button3";
-            button3.Size = new Size(132, 30);
-            button3.TabIndex = 4;
-            button3.Text = "ВЫХОД";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.MediumSpringGreen;
-            button1.Dock = DockStyle.Left;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(4);
-            button1.Name = "button1";
-            button1.Size = new Size(132, 30);
-            button1.TabIndex = 6;
-            button1.Text = "НАЗАД";
-            button1.UseVisualStyleBackColor = false;
+            btnLogut.BackColor = Color.MediumSpringGreen;
+            btnLogut.Dock = DockStyle.Right;
+            btnLogut.FlatStyle = FlatStyle.Flat;
+            btnLogut.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnLogut.ForeColor = Color.Black;
+            btnLogut.Location = new Point(832, 0);
+            btnLogut.Margin = new Padding(4);
+            btnLogut.Name = "btnLogut";
+            btnLogut.Size = new Size(132, 30);
+            btnLogut.TabIndex = 4;
+            btnLogut.Text = "ВЫХОД";
+            btnLogut.UseVisualStyleBackColor = false;
+            btnLogut.Click += BtnLogut_Click;
             // 
             // dgvProducts
             // 
@@ -143,8 +127,7 @@
 
         private Panel panelTop;
         private Label lblUserName;
-        private Button button3;
-        private Button button1;
+        private Button btnLogut;
         private DataGridView dgvProducts;
     }
 }
