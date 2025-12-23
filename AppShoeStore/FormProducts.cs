@@ -36,7 +36,7 @@ namespace AppShoeStore
             CurrentUser = user;
             IsGuest = guest;
 
-            lblUserName.Text = IsGuest ? "Гость:" : CurrentUser.FullName;
+            lblUserName.Text = IsGuest ? "Гость" : CurrentUser.FullName;
 
             LoadProducts();
         }
@@ -51,6 +51,7 @@ namespace AppShoeStore
                         .Include(i => i.Manufacturer)
                         .Include(i => i.Supplier)
                         .Include(i => i.Measure)
+                        .Include(i => i.ProductType)
                         .ToList();
                     dgvProducts.SuspendLayout();
                     dgvProducts.Rows.Clear();
@@ -69,6 +70,8 @@ namespace AppShoeStore
 
                         ApplyRowStyles(row, product);
                     }
+                    dgvProducts.ResumeLayout();
+                    dgvProducts.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
 
                 }
             }
@@ -120,7 +123,7 @@ namespace AppShoeStore
                 $"Описание товара: {product.Description}" + Environment.NewLine +
                 $"Производитель: {product.Manufacturer.ManufacturerName}" + Environment.NewLine +
                 $"Поставщик: {product.Supplier.SupplierName}" + Environment.NewLine +
-                $"Цена: {priceText}" + Environment.NewLine +
+                $"{priceText}" + Environment.NewLine +
                 $"Единица измерения: {product.Measure}" + Environment.NewLine +
                 $"Количество на складе: {product.CointInStock}";
 

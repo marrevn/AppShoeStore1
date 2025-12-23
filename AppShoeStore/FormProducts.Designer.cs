@@ -52,20 +52,21 @@
             // 
             // lblUserName
             // 
+            lblUserName.AutoSize = true;
             lblUserName.Dock = DockStyle.Right;
-            lblUserName.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblUserName.Location = new Point(622, 0);
+            lblUserName.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblUserName.Location = new Point(832, 0);
             lblUserName.Margin = new Padding(4, 0, 4, 0);
             lblUserName.Name = "lblUserName";
-            lblUserName.Padding = new Padding(0, 13, 0, 0);
-            lblUserName.Size = new Size(210, 30);
-            lblUserName.TabIndex = 7;
+            lblUserName.Size = new Size(0, 19);
+            lblUserName.TabIndex = 8;
             lblUserName.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnLogut
             // 
             btnLogut.BackColor = Color.MediumSpringGreen;
             btnLogut.Dock = DockStyle.Right;
+            btnLogut.FlatAppearance.BorderSize = 0;
             btnLogut.FlatStyle = FlatStyle.Flat;
             btnLogut.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnLogut.ForeColor = Color.Black;
@@ -74,7 +75,7 @@
             btnLogut.Name = "btnLogut";
             btnLogut.Size = new Size(132, 30);
             btnLogut.TabIndex = 4;
-            btnLogut.Text = "ВЫХОД";
+            btnLogut.Text = "Выход";
             btnLogut.UseVisualStyleBackColor = false;
             btnLogut.Click += BtnLogut_Click;
             // 
@@ -82,10 +83,12 @@
             // 
             dgvProducts.AllowUserToAddRows = false;
             dgvProducts.AllowUserToDeleteRows = false;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProducts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvProducts.BackgroundColor = Color.White;
             dgvProducts.BorderStyle = BorderStyle.None;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.ColumnHeadersVisible = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
@@ -119,6 +122,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Список товаров";
             panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ResumeLayout(false);
         }
@@ -126,8 +130,8 @@
         #endregion
 
         private Panel panelTop;
-        private Label lblUserName;
         private Button btnLogut;
         private DataGridView dgvProducts;
+        private Label lblUserName;
     }
 }
