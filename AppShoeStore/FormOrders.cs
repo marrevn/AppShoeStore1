@@ -6,8 +6,7 @@ namespace AppShoeStore
     public partial class FormOrders : Form
     {
         public User CurrentUser { get; private set; }
-        public bool IsGuest { get; private set; }
-        public FormOrders(User user, bool guest)
+        public FormOrders(User user)
         {
             InitializeComponent();
 
@@ -21,15 +20,14 @@ namespace AppShoeStore
             colDelivery.FillWeight = 20;
             colDelivery.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dvgOrders.Columns.AddRange(
+            dgvOrders.Columns.AddRange(
             [
                 colInfo, colDelivery
             ]);
 
             CurrentUser = user;
-            IsGuest = guest;
 
-            lblUserName.Text = IsGuest ? "Гость" : CurrentUser.FullName;
+            lblUserName.Text = CurrentUser.FullName;
 
             LoadOrders();
         }
@@ -39,29 +37,28 @@ namespace AppShoeStore
             {
                 using (var db = new Models.ShopDbContext())
                 {
-                    var orders = db.ProductsOrders
-                        .Include(i => i.IdProduct)
-                        .Include(i => i.IdOrder)
-                        .Include(i => i.)
-                        .Include(i => i.)
-                        .Include(i => i.)
+                    var orders = db.Orders
+                        .Include(i => i.ProductsOrders)
+                            .ThenInclude(i => i.Product)
+                        .Include(i => i.Status)
+                        .Include(i => i.DeliveryPoint)
+                        .Where(o => o.IdUser == CurrentUser.Id)
                         .ToList();
-                    dvgOrders.SuspendLayout();
-                    dvgOrders.Rows.Clear();
+                    dgvOrders.SuspendLayout();
+                    dgvOrders.Rows.Clear();
 
                     foreach (var order in orders)
                     {
-                        int rowIndex = dvgOrders.Rows.Add();
-                        var row = dvgOrders.Rows[rowIndex];
 
-                        row.Cells["colInfo"].Value = FormatOrderInfo(orders);
+                        int rowIndex = dgvOrders.Rows.Add();
+                        var row = dgvOrders.Rows[rowIndex];
 
-                        row.Cells["colDelivery"].Value = $"{orders.DeliveryDate}";
-                        row.Cells["colDiscount"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        row.Cells["colInfo"].Value = FormatOrderInfo(order);
+                        row.Cells["colDelivery"].Value = $"{order.DeliveryDate}";
 
                     }
-                    dvgOrders.ResumeLayout();
-                    dvgOrders.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
+                    dgvOrders.ResumeLayout();
+                    dgvOrders.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
 
                 }
             }
@@ -74,16 +71,17 @@ namespace AppShoeStore
 
 
 
-        private string FormatOrderInfo(Product product)
+        private string FormatOrderInfo(Order order)
         {
-            return $"{product.Category.CategoryName} | {product.ProductType.ProdType}" + Environment.NewLine +
-                $"Артикулы: {product.Description}" + Environment.NewLine +
-                $"Статус заказа: {product.Manufacturer.ManufacturerName}" + Environment.NewLine +
-                $"Адрес пункта выдачи: {product.Supplier.SupplierName}" + Environment.NewLine +
-                $"Дата заказа: {product.Measure}";
+            var articleNumbers = order.ProductsOrders
+                .Select(po => po.Product.Art)
+                .ToArray();
+            string articlesString = string.Join(", ", articleNumbers);
 
-
-
+            return $"Артикулы: {articlesString}" + Environment.NewLine +
+            $"Статус заказа: {order.Status.StatusName}" + Environment.NewLine +
+            $"Адрес пункта выдачи: {order.DeliveryPoint.DeliveryAddress}" + Environment.NewLine +
+            $"Дата доставки: {order.DeliveryDate}";
         }
 
         private void BtnLogut_Click(object sender, EventArgs e)
@@ -97,11 +95,14 @@ namespace AppShoeStore
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            FormOrderManagement formOrdersManagement = new FormOrderManagement();
-            formOrdersManagement.Show();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnExit_Click_1(object sender, EventArgs e)
         {
 
         }

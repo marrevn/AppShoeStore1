@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            lblUserName = new Label();
             btnBack = new Button();
             label1 = new Label();
             btnExit = new Button();
@@ -41,6 +42,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblUserName);
             panel1.Controls.Add(btnBack);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnExit);
@@ -51,6 +53,15 @@
             panel1.Padding = new Padding(0, 0, 0, 10);
             panel1.Size = new Size(773, 40);
             panel1.TabIndex = 2;
+            // 
+            // lblUserName
+            // 
+            lblUserName.AutoSize = true;
+            lblUserName.Dock = DockStyle.Right;
+            lblUserName.Location = new Point(641, 0);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(0, 19);
+            lblUserName.TabIndex = 16;
             // 
             // btnBack
             // 
@@ -96,6 +107,7 @@
             btnExit.TabIndex = 13;
             btnExit.Text = "Выход";
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += BtnExit_Click;
             // 
             // panel2
             // 
@@ -123,6 +135,7 @@
             btnProducts.TabIndex = 3;
             btnProducts.Text = "ТОВАРЫ";
             btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += BtnProducts_Click;
             // 
             // btnOrders
             // 
@@ -166,5 +179,6 @@
         private Button btnProducts;
         private Button btnOrders;
         private Button btnBack;
+        private Label lblUserName;
     }
 }

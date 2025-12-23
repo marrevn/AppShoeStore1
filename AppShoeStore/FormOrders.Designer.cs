@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelTop = new Panel();
             btnBack = new Button();
             lblUserName = new Label();
@@ -35,10 +36,10 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
             btnDelete = new Button();
-            dvgOrders = new DataGridView();
+            dgvOrders = new DataGridView();
             panelTop.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgOrders).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
             SuspendLayout();
             // 
             // panelTop
@@ -98,6 +99,7 @@
             BtnExit.TabIndex = 13;
             BtnExit.Text = "Выход";
             BtnExit.UseVisualStyleBackColor = false;
+            BtnExit.Click += BtnExit_Click_1;
             // 
             // flowLayoutPanel1
             // 
@@ -145,16 +147,33 @@
             btnDelete.Text = "Удалить заказ";
             btnDelete.UseVisualStyleBackColor = false;
             // 
-            // dvgOrders
+            // dgvOrders
             // 
-            dvgOrders.BackgroundColor = Color.White;
-            dvgOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgOrders.Dock = DockStyle.Fill;
-            dvgOrders.Location = new Point(0, 116);
-            dvgOrders.Margin = new Padding(4);
-            dvgOrders.Name = "dvgOrders";
-            dvgOrders.Size = new Size(984, 545);
-            dvgOrders.TabIndex = 5;
+            dgvOrders.AllowUserToAddRows = false;
+            dgvOrders.AllowUserToDeleteRows = false;
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrders.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvOrders.BackgroundColor = Color.White;
+            dgvOrders.BorderStyle = BorderStyle.None;
+            dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrders.ColumnHeadersVisible = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvOrders.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvOrders.Dock = DockStyle.Fill;
+            dgvOrders.Location = new Point(0, 116);
+            dgvOrders.MultiSelect = false;
+            dgvOrders.Name = "dgvOrders";
+            dgvOrders.ReadOnly = true;
+            dgvOrders.RowHeadersVisible = false;
+            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOrders.Size = new Size(984, 545);
+            dgvOrders.TabIndex = 13;
             // 
             // FormOrders
             // 
@@ -162,7 +181,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(984, 661);
-            Controls.Add(dvgOrders);
+            Controls.Add(dgvOrders);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panelTop);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
@@ -174,7 +193,7 @@
             panelTop.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgOrders).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).EndInit();
             ResumeLayout(false);
         }
 
@@ -184,9 +203,9 @@
         private Label lblUserName;
         private Button BtnExit;
         private FlowLayoutPanel flowLayoutPanel1;
-        private DataGridView dvgOrders;
         private Button btnAdd;
         private Button btnDelete;
         private Button btnBack;
+        private DataGridView dgvOrders;
     }
 }
