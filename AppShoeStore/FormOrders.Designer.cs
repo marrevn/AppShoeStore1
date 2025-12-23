@@ -28,186 +28,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button3 = new Button();
-            button1 = new Button();
-            panel1 = new Panel();
-            panel3 = new Panel();
-            label4 = new Label();
-            label3 = new Label();
-            button5 = new Button();
-            panel2 = new Panel();
-            label1 = new Label();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            button2 = new Button();
-            panel1.SuspendLayout();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
+            panelTop = new Panel();
+            btnBack = new Button();
+            lblUserName = new Label();
+            BtnExit = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            dvgOrders = new DataGridView();
+            panelTop.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgOrders).BeginInit();
             SuspendLayout();
             // 
-            // button3
+            // panelTop
             // 
-            button3.BackColor = Color.MediumSpringGreen;
-            button3.Dock = DockStyle.Right;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(491, 10);
-            button3.Name = "button3";
-            button3.Size = new Size(103, 48);
-            button3.TabIndex = 4;
-            button3.Text = "ВЫХОД";
-            button3.UseVisualStyleBackColor = false;
+            panelTop.Controls.Add(btnBack);
+            panelTop.Controls.Add(lblUserName);
+            panelTop.Controls.Add(BtnExit);
+            panelTop.Dock = DockStyle.Top;
+            panelTop.Location = new Point(0, 0);
+            panelTop.Margin = new Padding(4);
+            panelTop.Name = "panelTop";
+            panelTop.Padding = new Padding(0, 0, 0, 10);
+            panelTop.Size = new Size(984, 40);
+            panelTop.TabIndex = 3;
             // 
-            // button1
+            // btnBack
             // 
-            button1.BackColor = Color.MediumSpringGreen;
-            button1.Dock = DockStyle.Left;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(10, 10);
-            button1.Name = "button1";
-            button1.Size = new Size(103, 48);
-            button1.TabIndex = 6;
-            button1.Text = "НАЗАД";
-            button1.UseVisualStyleBackColor = false;
+            btnBack.BackColor = Color.MediumSpringGreen;
+            btnBack.Dock = DockStyle.Left;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnBack.ForeColor = Color.Black;
+            btnBack.Location = new Point(0, 0);
+            btnBack.Margin = new Padding(4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(132, 30);
+            btnBack.TabIndex = 15;
+            btnBack.Text = "Назад";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += BtnBack_Click;
             // 
-            // panel1
+            // lblUserName
             // 
-            panel1.Controls.Add(panel3);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 165);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(10);
-            panel1.Size = new Size(604, 346);
-            panel1.TabIndex = 8;
+            lblUserName.AutoSize = true;
+            lblUserName.Dock = DockStyle.Right;
+            lblUserName.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblUserName.Location = new Point(852, 0);
+            lblUserName.Margin = new Padding(4, 0, 4, 0);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Padding = new Padding(0, 13, 0, 0);
+            lblUserName.Size = new Size(0, 34);
+            lblUserName.TabIndex = 14;
             // 
-            // panel3
+            // BtnExit
             // 
-            panel3.Controls.Add(label4);
-            panel3.Controls.Add(label3);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(10, 10);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(10);
-            panel3.Size = new Size(584, 109);
-            panel3.TabIndex = 0;
+            BtnExit.BackColor = Color.MediumSpringGreen;
+            BtnExit.Dock = DockStyle.Right;
+            BtnExit.FlatAppearance.BorderSize = 0;
+            BtnExit.FlatStyle = FlatStyle.Flat;
+            BtnExit.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnExit.ForeColor = Color.Black;
+            BtnExit.Location = new Point(852, 0);
+            BtnExit.Margin = new Padding(4);
+            BtnExit.Name = "BtnExit";
+            BtnExit.Size = new Size(132, 30);
+            BtnExit.TabIndex = 13;
+            BtnExit.Text = "Выход";
+            BtnExit.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // flowLayoutPanel1
             // 
-            label4.BorderStyle = BorderStyle.FixedSingle;
-            label4.Dock = DockStyle.Right;
-            label4.Location = new Point(448, 10);
-            label4.Name = "label4";
-            label4.Size = new Size(126, 89);
-            label4.TabIndex = 1;
-            label4.Text = "label4";
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Controls.Add(btnDelete);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 40);
+            flowLayoutPanel1.Margin = new Padding(4);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new Padding(6);
+            flowLayoutPanel1.Size = new Size(984, 76);
+            flowLayoutPanel1.TabIndex = 4;
             // 
-            // label3
+            // btnAdd
             // 
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Dock = DockStyle.Left;
-            label3.Location = new Point(10, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(391, 89);
-            label3.TabIndex = 0;
-            label3.Text = "label3";
+            btnAdd.AutoSize = true;
+            btnAdd.BackColor = Color.MediumSpringGreen;
+            btnAdd.Dock = DockStyle.Left;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(10, 10);
+            btnAdd.Margin = new Padding(4);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(184, 51);
+            btnAdd.TabIndex = 19;
+            btnAdd.Text = "Добавить заказ";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnDelete
             // 
-            button5.AutoSize = true;
-            button5.BackColor = Color.MediumSpringGreen;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button5.ForeColor = Color.Black;
-            button5.Location = new Point(11, 11);
-            button5.Name = "button5";
-            button5.Size = new Size(156, 50);
-            button5.TabIndex = 9;
-            button5.Text = "Добавить заказ";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            btnDelete.AutoSize = true;
+            btnDelete.BackColor = Color.MediumSpringGreen;
+            btnDelete.Dock = DockStyle.Left;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnDelete.ForeColor = Color.Black;
+            btnDelete.Location = new Point(202, 10);
+            btnDelete.Margin = new Padding(4);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(184, 51);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "Удалить заказ";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // dvgOrders
             // 
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button1);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(10);
-            panel2.Size = new Size(604, 68);
-            panel2.TabIndex = 9;
-            // 
-            // label1
-            // 
-            label1.Dock = DockStyle.Right;
-            label1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(328, 10);
-            label1.Name = "label1";
-            label1.Padding = new Padding(0, 10, 0, 0);
-            label1.Size = new Size(163, 48);
-            label1.TabIndex = 7;
-            label1.Text = "ФИО пользователя";
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.Controls.Add(button5);
-            flowLayoutPanel3.Controls.Add(button2);
-            flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.Location = new Point(0, 68);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Padding = new Padding(8);
-            flowLayoutPanel3.Size = new Size(604, 97);
-            flowLayoutPanel3.TabIndex = 11;
-            // 
-            // button2
-            // 
-            button2.AutoSize = true;
-            button2.BackColor = Color.MediumSpringGreen;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(173, 11);
-            button2.Name = "button2";
-            button2.Size = new Size(156, 50);
-            button2.TabIndex = 10;
-            button2.Text = "Удалить";
-            button2.UseVisualStyleBackColor = false;
+            dvgOrders.BackgroundColor = Color.White;
+            dvgOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgOrders.Dock = DockStyle.Fill;
+            dvgOrders.Location = new Point(0, 116);
+            dvgOrders.Margin = new Padding(4);
+            dvgOrders.Name = "dvgOrders";
+            dvgOrders.Size = new Size(984, 545);
+            dvgOrders.TabIndex = 5;
             // 
             // FormOrders
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(604, 511);
-            Controls.Add(flowLayoutPanel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            MinimumSize = new Size(412, 550);
+            ClientSize = new Size(984, 661);
+            Controls.Add(dvgOrders);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(panelTop);
+            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Margin = new Padding(4);
+            MinimumSize = new Size(525, 686);
             Name = "FormOrders";
             Text = "Заказы";
-            panel1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgOrders).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private Button button3;
-        private Button button1;
-        private Panel panel1;
-        private Button button5;
-        private Panel panel2;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private Button button2;
-        private Panel panel3;
-        private Label label1;
-        private Label label4;
-        private Label label3;
+
+        private Panel panelTop;
+        private Label lblUserName;
+        private Button BtnExit;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private DataGridView dvgOrders;
+        private Button btnAdd;
+        private Button btnDelete;
+        private Button btnBack;
     }
 }
