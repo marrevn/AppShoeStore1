@@ -48,7 +48,7 @@
             panelTop.Location = new Point(10, 10);
             panelTop.Margin = new Padding(4);
             panelTop.Name = "panelTop";
-            panelTop.Padding = new Padding(0, 0, 0, 10);
+            panelTop.Padding = new Padding(10, 0, 10, 10);
             panelTop.Size = new Size(964, 40);
             panelTop.TabIndex = 11;
             // 
@@ -60,7 +60,7 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnBack.ForeColor = Color.Black;
-            btnBack.Location = new Point(0, 0);
+            btnBack.Location = new Point(10, 0);
             btnBack.Margin = new Padding(4);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(132, 30);
@@ -74,7 +74,7 @@
             lblUserName.AutoSize = true;
             lblUserName.Dock = DockStyle.Right;
             lblUserName.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblUserName.Location = new Point(832, 0);
+            lblUserName.Location = new Point(822, 0);
             lblUserName.Margin = new Padding(4, 0, 4, 0);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(0, 21);
@@ -89,7 +89,7 @@
             btnLogut.FlatStyle = FlatStyle.Flat;
             btnLogut.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnLogut.ForeColor = Color.Black;
-            btnLogut.Location = new Point(832, 0);
+            btnLogut.Location = new Point(822, 0);
             btnLogut.Margin = new Padding(4);
             btnLogut.Name = "btnLogut";
             btnLogut.Size = new Size(132, 30);

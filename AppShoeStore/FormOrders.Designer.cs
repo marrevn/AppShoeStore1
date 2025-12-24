@@ -48,10 +48,10 @@
             panelTop.Controls.Add(lblUserName);
             panelTop.Controls.Add(BtnLogUt);
             panelTop.Dock = DockStyle.Top;
-            panelTop.Location = new Point(0, 0);
+            panelTop.Location = new Point(0, 5);
             panelTop.Margin = new Padding(4);
             panelTop.Name = "panelTop";
-            panelTop.Padding = new Padding(0, 0, 0, 10);
+            panelTop.Padding = new Padding(10, 0, 10, 10);
             panelTop.Size = new Size(984, 40);
             panelTop.TabIndex = 3;
             // 
@@ -63,7 +63,7 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnBack.ForeColor = Color.Black;
-            btnBack.Location = new Point(0, 0);
+            btnBack.Location = new Point(10, 0);
             btnBack.Margin = new Padding(4);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(132, 30);
@@ -77,7 +77,7 @@
             lblUserName.AutoSize = true;
             lblUserName.Dock = DockStyle.Right;
             lblUserName.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblUserName.Location = new Point(852, 0);
+            lblUserName.Location = new Point(842, 0);
             lblUserName.Margin = new Padding(4, 0, 4, 0);
             lblUserName.Name = "lblUserName";
             lblUserName.Padding = new Padding(0, 13, 0, 0);
@@ -92,7 +92,7 @@
             BtnLogUt.FlatStyle = FlatStyle.Flat;
             BtnLogUt.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             BtnLogUt.ForeColor = Color.Black;
-            BtnLogUt.Location = new Point(852, 0);
+            BtnLogUt.Location = new Point(842, 0);
             BtnLogUt.Margin = new Padding(4);
             BtnLogUt.Name = "BtnLogUt";
             BtnLogUt.Size = new Size(132, 30);
@@ -106,7 +106,7 @@
             flowLayoutPanel1.Controls.Add(btnAdd);
             flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 40);
+            flowLayoutPanel1.Location = new Point(0, 45);
             flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(6);
@@ -166,13 +166,13 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvOrders.DefaultCellStyle = dataGridViewCellStyle1;
             dgvOrders.Dock = DockStyle.Fill;
-            dgvOrders.Location = new Point(0, 116);
+            dgvOrders.Location = new Point(0, 121);
             dgvOrders.MultiSelect = false;
             dgvOrders.Name = "dgvOrders";
             dgvOrders.ReadOnly = true;
             dgvOrders.RowHeadersVisible = false;
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvOrders.Size = new Size(984, 545);
+            dgvOrders.Size = new Size(984, 540);
             dgvOrders.TabIndex = 13;
             // 
             // FormOrders
@@ -188,6 +188,7 @@
             Margin = new Padding(4);
             MinimumSize = new Size(525, 686);
             Name = "FormOrders";
+            Padding = new Padding(0, 5, 0, 0);
             Text = "Заказы";
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
