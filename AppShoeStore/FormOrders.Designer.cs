@@ -32,7 +32,7 @@
             panelTop = new Panel();
             btnBack = new Button();
             lblUserName = new Label();
-            BtnExit = new Button();
+            BtnLogUt = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnAdd = new Button();
             btnDelete = new Button();
@@ -46,7 +46,7 @@
             // 
             panelTop.Controls.Add(btnBack);
             panelTop.Controls.Add(lblUserName);
-            panelTop.Controls.Add(BtnExit);
+            panelTop.Controls.Add(BtnLogUt);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Margin = new Padding(4);
@@ -84,22 +84,22 @@
             lblUserName.Size = new Size(0, 34);
             lblUserName.TabIndex = 14;
             // 
-            // BtnExit
+            // BtnLogUt
             // 
-            BtnExit.BackColor = Color.MediumSpringGreen;
-            BtnExit.Dock = DockStyle.Right;
-            BtnExit.FlatAppearance.BorderSize = 0;
-            BtnExit.FlatStyle = FlatStyle.Flat;
-            BtnExit.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            BtnExit.ForeColor = Color.Black;
-            BtnExit.Location = new Point(852, 0);
-            BtnExit.Margin = new Padding(4);
-            BtnExit.Name = "BtnExit";
-            BtnExit.Size = new Size(132, 30);
-            BtnExit.TabIndex = 13;
-            BtnExit.Text = "Выход";
-            BtnExit.UseVisualStyleBackColor = false;
-            BtnExit.Click += BtnExit_Click_1;
+            BtnLogUt.BackColor = Color.MediumSpringGreen;
+            BtnLogUt.Dock = DockStyle.Right;
+            BtnLogUt.FlatAppearance.BorderSize = 0;
+            BtnLogUt.FlatStyle = FlatStyle.Flat;
+            BtnLogUt.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BtnLogUt.ForeColor = Color.Black;
+            BtnLogUt.Location = new Point(852, 0);
+            BtnLogUt.Margin = new Padding(4);
+            BtnLogUt.Name = "BtnLogUt";
+            BtnLogUt.Size = new Size(132, 30);
+            BtnLogUt.TabIndex = 13;
+            BtnLogUt.Text = "Выход";
+            BtnLogUt.UseVisualStyleBackColor = false;
+            BtnLogUt.Click += BtnLogUt_Click_1;
             // 
             // flowLayoutPanel1
             // 
@@ -201,7 +201,7 @@
 
         private Panel panelTop;
         private Label lblUserName;
-        private Button BtnExit;
+        private Button BtnLogUt;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnAdd;
         private Button btnDelete;

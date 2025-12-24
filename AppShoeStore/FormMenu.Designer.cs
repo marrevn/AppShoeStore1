@@ -58,9 +58,10 @@
             // 
             lblUserName.AutoSize = true;
             lblUserName.Dock = DockStyle.Right;
+            lblUserName.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             lblUserName.Location = new Point(641, 0);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(0, 19);
+            lblUserName.Size = new Size(0, 21);
             lblUserName.TabIndex = 16;
             // 
             // btnBack
@@ -69,7 +70,7 @@
             btnBack.Dock = DockStyle.Left;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnBack.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnBack.ForeColor = Color.Black;
             btnBack.Location = new Point(0, 0);
             btnBack.Margin = new Padding(4);
@@ -98,7 +99,7 @@
             btnExit.Dock = DockStyle.Right;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnExit.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnExit.ForeColor = Color.Black;
             btnExit.Location = new Point(641, 0);
             btnExit.Margin = new Padding(4);
@@ -126,7 +127,7 @@
             btnProducts.BackColor = Color.MediumSpringGreen;
             btnProducts.Dock = DockStyle.Top;
             btnProducts.FlatStyle = FlatStyle.Flat;
-            btnProducts.Font = new Font("Times New Roman", 12F);
+            btnProducts.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnProducts.ForeColor = Color.Black;
             btnProducts.Location = new Point(13, 190);
             btnProducts.Margin = new Padding(4);
@@ -142,7 +143,7 @@
             btnOrders.BackColor = Color.MediumSpringGreen;
             btnOrders.Dock = DockStyle.Top;
             btnOrders.FlatStyle = FlatStyle.Flat;
-            btnOrders.Font = new Font("Times New Roman", 12F);
+            btnOrders.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnOrders.ForeColor = Color.Black;
             btnOrders.Location = new Point(13, 127);
             btnOrders.Margin = new Padding(13);

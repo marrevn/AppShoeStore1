@@ -22,27 +22,31 @@ namespace AppShoeStore
 
         private void BtnOrders_Click(object sender, EventArgs e)
         {
+            this.Hide();
             using (var formOrders = new FormOrders(CurrentUser))
             {
                 formOrders.ShowDialog();
+                this.Show();
             }
         }
         private void BtnBack_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void BtnProducts_Click(object sender, EventArgs e)
         {
+            this.Hide();
             using (var formProducts = new FormProducts(CurrentUser, IsGuest))
             {
                 formProducts.ShowDialog();
+                this.Show();
             }
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

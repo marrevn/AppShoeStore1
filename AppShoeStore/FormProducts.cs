@@ -124,7 +124,7 @@ namespace AppShoeStore
                 $"Производитель: {product.Manufacturer.ManufacturerName}" + Environment.NewLine +
                 $"Поставщик: {product.Supplier.SupplierName}" + Environment.NewLine +
                 $"{priceText}" + Environment.NewLine +
-                $"Единица измерения: {product.Measure}" + Environment.NewLine +
+                $"Единица измерения: {product.Measure.MeasureName}" + Environment.NewLine +
                 $"Количество на складе: {product.CointInStock}";
 
 
@@ -154,6 +154,7 @@ namespace AppShoeStore
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
+            this.Hide();
 
         }
     }

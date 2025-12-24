@@ -73,11 +73,11 @@
             // 
             lblUserName.AutoSize = true;
             lblUserName.Dock = DockStyle.Right;
-            lblUserName.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblUserName.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             lblUserName.Location = new Point(832, 0);
             lblUserName.Margin = new Padding(4, 0, 4, 0);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(0, 19);
+            lblUserName.Size = new Size(0, 21);
             lblUserName.TabIndex = 8;
             lblUserName.TextAlign = ContentAlignment.MiddleRight;
             // 
